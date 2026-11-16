@@ -1,0 +1,44 @@
+Independent exact direct allocation: 32 sets, all match
+count 0 unrestricted empty 2 implementable empty 2
+count 1 unrestricted A 51/200 implementable A 51/200
+count 2 unrestricted BD 27/200 implementable BD 27/200
+count 3 unrestricted ACD 127/1250 implementable ACD 127/1250
+count 4 unrestricted ABCD 497/5000 implementable ACDE 419/4000
+count 5 unrestricted ABCDE 2051/20000 implementable ABCDE 2051/20000
+all four-set intervals:
+ABCD (Fraction(19, 50), Fraction(6, 25)) 497/5000
+ABCE (Fraction(39, 100), Fraction(6, 25)) 1989/20000
+ABDE (Fraction(1, 2), Fraction(19, 50)) 2407/20000
+ACDE (Fraction(6, 25), Fraction(19, 50)) 419/4000
+BCDE (Fraction(49, 100), Fraction(39, 100)) 479/4000
+all threshold regimes covered: 29
+theta 23/100 [('ABCDE', '2051/20000')]
+theta 6/25 [('ACDE', '419/4000'), ('ABCDE', '2051/20000')]
+theta 3/10 [('ACDE', '419/4000')]
+theta 19/50 [('ACD', '127/1250'), ('ACDE', '419/4000')]
+theta 77/200 [('ACD', '127/1250')]
+theta 39/100 [('ACD', '127/1250'), ('ACE', '2033/20000')]
+theta 2/5 [('ACD', '127/1250'), ('ACE', '2033/20000')]
+theta 49/100 [('ACD', '127/1250'), ('ACE', '2033/20000'), ('BCE', '2333/20000')]
+theta 1/2 [('BD', '27/200'), ('ABD', '293/2500'), ('ACD', '127/1250'), ('ACE', '2033/20000'), ('BCD', '293/2500'), ('BCE', '2333/20000'), ('BDE', '2751/20000')]
+theta 51/100 [('BD', '27/200'), ('BE', '2701/20000'), ('ACD', '127/1250'), ('ACE', '2033/20000'), ('BCE', '2333/20000')]
+theta 31/50 [('AD', '711/5000'), ('BD', '27/200'), ('BE', '2701/20000'), ('CD', '711/5000'), ('CE', '2821/20000'), ('ACD', '127/1250')]
+theta 1 [('A', '51/200'), ('B', '51/200'), ('C', '51/200'), ('D', '51/200'), ('E', '51/200'), ('AB', '259/1250'), ('AC', '211/1250'), ('AD', '711/5000'), ('AE', '2869/20000'), ('BC', '259/1250'), ('BD', '27/200'), ('BE', '2701/20000'), ('CD', '711/5000'), ('CE', '2821/20000'), ('DE', '5101/20000')]
+theta 2 [('empty', '2'), ('A', '51/200'), ('B', '51/200'), ('C', '51/200'), ('D', '51/200'), ('E', '51/200')]
+dominance 3/10 A True 19/100 17/10
+dominance 3/10 C True 1/5 7/10
+dominance 3/10 D True 9/100 23/50
+dominance 3/10 E True 2/25 2/25
+dominance 3/10 B False -3/50 -3/50
+unique including mixed 3/10 ACDE
+dominance 77/200 A True 21/200 323/200
+dominance 77/200 C True 23/200 123/200
+dominance 77/200 D True 1/200 3/8
+dominance 77/200 E False -1/200 -1/200
+dominance 77/200 B False -29/200 -29/200
+unique including mixed 77/200 ACD
+FB/SB gap 11/5000 cost pct 1100/497
+four vs three gain 63/20000
+symbolic welfare identity PASS
+fixed cost FB interval (Fraction(37, 20000), Fraction(9, 1250))
+fixed cost robust SB interval (Fraction(181, 40000), Fraction(24, 625))
