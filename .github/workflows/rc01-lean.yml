@@ -33,13 +33,15 @@ jobs:
         run: |
           set -euo pipefail
           lean --version
-          lake build --wfail
+          lake build --wfail 2>&1 | tee lean-build.log
           lake env lean RC01Proof.lean 2>&1 | tee lean-audit.log
           python3 audit.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: rc01-lean-audit
-          path: formal/rc01/lean-audit.log
+          path: |
+            formal/rc01/lean-audit.log
+            formal/rc01/lean-build.log
           if-no-files-found: ignore
           retention-days: 7
