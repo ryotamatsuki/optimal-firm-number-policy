@@ -1,0 +1,3 @@
+# R-C01 Stage 4A permanent scope/indifference regression
+
+Python direct-cell evaluator, 2026-11-17. d=(1/5,1/5,3/5), theta=4/5. Active labels 0,1 form a pure NE. Inactive 2 has doubled entry share 4/5, exactly indifferent; if it enters, firm 1's doubled share becomes 2/5, so firm 1 strictly prefers exit. This changed profile is not a NE. Do not identify payoff-indifferent profiles or suppress ties. See stage04a_adversarial.py for complete-profile flip diagnostics. Additional exact regression in script: N=4 even equal-share worlds U=(.25,.25,.25,.25), C=(.05,.45,.05,.45) share some but not all signals at theta=.5 and .6. No claim of whole-correspondence equivalence.
