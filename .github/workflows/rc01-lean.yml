@@ -1,0 +1,45 @@
+name: RC01 Lean proof audit
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'formal/rc01/**'
+      - '.github/workflows/rc01-lean.yml'
+permissions:
+  contents: read
+concurrency:
+  group: rc01-lean-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject proof escape mechanisms
+        working-directory: formal/rc01
+        run: |
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|native_decide|axiom|unsafe)([^[:alnum:]_]|$)' RC01Proof.lean; then exit 1; fi
+          test -s lake-manifest.json
+      - name: Install pinned Lean
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore mathlib cache
+        working-directory: formal/rc01
+        run: lake exe cache get
+      - name: Kernel build and axiom audit
+        working-directory: formal/rc01
+        run: |
+          set -euo pipefail
+          lean --version
+          lake build --wfail
+          lake env lean RC01Proof.lean 2>&1 | tee lean-audit.log
+          python3 audit.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rc01-lean-audit
+          path: formal/rc01/lean-audit.log
+          if-no-files-found: ignore
+          retention-days: 7
