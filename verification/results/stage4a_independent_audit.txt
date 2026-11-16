@@ -1,0 +1,56 @@
+S03 all sets in cost order; admissible interval (theta):
+ABCD 497/5000 0.0994 (Fraction(19, 50), Fraction(6, 25)) False
+ABCE 1989/20000 0.09945 (Fraction(39, 100), Fraction(6, 25)) False
+ACD 127/1250 0.1016 (Fraction(19, 50), Fraction(31, 50)) True
+ACE 2033/20000 0.10165 (Fraction(39, 100), Fraction(61, 100)) True
+ABCDE 2051/20000 0.10255 (None, Fraction(6, 25)) True
+ACDE 419/4000 0.10475 (Fraction(6, 25), Fraction(19, 50)) True
+BCE 2333/20000 0.11665 (Fraction(49, 100), Fraction(51, 100)) True
+BCD 293/2500 0.1172 (Fraction(1, 2), Fraction(1, 2)) True
+ABD 293/2500 0.1172 (Fraction(1, 2), Fraction(1, 2)) True
+ABE 2357/20000 0.11785 (Fraction(51, 100), Fraction(49, 100)) False
+BCDE 479/4000 0.11975 (Fraction(49, 100), Fraction(39, 100)) False
+ABDE 2407/20000 0.12035 (Fraction(1, 2), Fraction(19, 50)) False
+BD 27/200 0.135 (Fraction(1, 2), Fraction(1, 1)) True
+BE 2701/20000 0.13505 (Fraction(51, 100), Fraction(1, 1)) True
+BDE 2751/20000 0.13755 (Fraction(1, 2), Fraction(1, 2)) True
+CE 2821/20000 0.14105 (Fraction(61, 100), Fraction(1, 1)) True
+CD 711/5000 0.1422 (Fraction(31, 50), Fraction(1, 1)) True
+AD 711/5000 0.1422 (Fraction(31, 50), Fraction(1, 1)) True
+AE 2869/20000 0.14345 (Fraction(63, 100), Fraction(1, 1)) True
+CDE 2883/20000 0.14415 (Fraction(61, 100), Fraction(39, 100)) False
+ADE 2907/20000 0.14535 (Fraction(31, 50), Fraction(19, 50)) False
+ABC 833/5000 0.1666 (Fraction(19, 25), Fraction(6, 25)) False
+AC 211/1250 0.1688 (Fraction(19, 25), Fraction(1, 1)) True
+BC 259/1250 0.2072 (Fraction(22, 25), Fraction(1, 1)) True
+AB 259/1250 0.2072 (Fraction(22, 25), Fraction(1, 1)) True
+E 51/200 0.255 (Fraction(1, 1), Fraction(2, 1)) True
+D 51/200 0.255 (Fraction(1, 1), Fraction(2, 1)) True
+C 51/200 0.255 (Fraction(1, 1), Fraction(2, 1)) True
+B 51/200 0.255 (Fraction(1, 1), Fraction(2, 1)) True
+A 51/200 0.255 (Fraction(1, 1), Fraction(2, 1)) True
+DE 5101/20000 0.25505 (Fraction(99, 100), Fraction(1, 1)) True
+empty 2 2.0 (Fraction(2, 1), None) True
+best4 ACDE 419/4000
+S03 thresholds 29 checks 928 eq counts 1 15 multi 25 no pure 0
+theta 6/25 ['ACDE', 'ABCDE']
+theta 3/10 ['ACDE']
+theta 19/50 ['ACD', 'ACDE']
+mixed bound P(first best)<= 100/107 loss >= 7/2140000 3.2710280373831774e-06
+eps 0.0 target profit 0.017999999999999974 delta W -0.0020000000000000044 A before 0.015
+grid 408 continuations 410 ties 2 unresolved 0 minBCD 0.012499999999999997 best 0.018000000000000002 argmax count 155 first [Fraction(0, 1), Fraction(1, 1000000), Fraction(1, 400)]
+tie z 0.18999999999999997 piE co/exit -0.044500000000000005 0.018000000000000002
+tie z 0.8099999999999999 piE co/exit -0.0445 0.018000000000000002
+eps 1e-06 target profit 0.018000112539539467 delta W -0.002000003506550818 A before 0.015000107031462387
+grid 408 continuations 408 ties 0 unresolved 0 minBCD 0.012499946484268804 best 0.018000112539539467 argmax count 1 first [Fraction(1, 10)]
+tie z 0.18999962757854516 piE co/exit -0.044499952467092346 0.018000108071045948
+tie z 0.8100003960235737 piE co/exit -0.04449998392848549 0.018000068976388214
+eps 0.001 target profit 0.01811253953951962 delta W -0.0020035065508014647 A before 0.015107031462401041
+grid 408 continuations 408 ties 0 unresolved 0 minBCD 0.012439531555083747 best 0.01811253953951962 argmax count 1 first [Fraction(1, 10)]
+tie z 0.18962793553922402 piE co/exit -0.04445242265745432 0.01810810763514213
+tie z 0.8103957810450053 piE co/exit -0.04448385552566399 0.01806908679041712
+eps 0.01 target profit 0.01912539539519635 delta W -0.002035065508014469 A before 0.016070314624010054
+grid 408 continuations 408 ties 0 unresolved 0 minBCD 0.011893065550837509 best 0.01912539539519635 argmax count 1 first [Fraction(1, 10)]
+tie z 0.18631126341596374 piE co/exit -0.04402029036412897 0.019084275950363258
+tie z 0.8139359229552072 piE co/exit -0.04433203391492353 0.018700705238195822
+PASS: independent numerical checks; proof and scope separate
