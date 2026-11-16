@@ -1,0 +1,27 @@
+Symbolic accounting and local loss PASS
+N 4 a 1/20 F 1/50 probes 13 planner [Fraction(57, 400), Fraction(33, 200)] robust [Fraction(57, 400), Fraction(33, 200)] full [Fraction(57, 400), Fraction(73, 400)] gamma 1/1200 delta 7/800
+det 7/400 randomized (Fraction(63, 6400), Fraction(-1, 2), Fraction(21, 40), Fraction(9, 16)) lower 1/1200 7/9200 random% U optimum 6.907894736842106
+policies attaining Rstar (theta, number of pure NE) [[(Fraction(-1, 2), 1)], [(Fraction(21, 40), 2)]]
+regime -1/2 U (Fraction(57, 400), Fraction(57, 400)) C (Fraction(73, 400), Fraction(73, 400))
+regime 1/2 U (Fraction(57, 400), Fraction(33, 200)) C (Fraction(33, 200), Fraction(73, 400))
+regime 21/40 U (Fraction(33, 200), Fraction(33, 200)) C (Fraction(33, 200), Fraction(33, 200))
+regime 11/20 U (Fraction(33, 200), Fraction(33, 200)) C (Fraction(33, 200), Fraction(133, 800))
+regime 13/20 U (Fraction(33, 200), Fraction(33, 200)) C (Fraction(33, 200), Fraction(133, 800))
+regime 3/4 U (Fraction(33, 200), Fraction(157, 800)) C (Fraction(33, 200), Fraction(133, 800))
+regime 17/20 U (Fraction(33, 200), Fraction(157, 800)) C (Fraction(33, 200), Fraction(133, 800))
+regime 19/20 U (Fraction(33, 200), Fraction(157, 800)) C (Fraction(33, 200), Fraction(213, 800))
+regime 39/40 U (Fraction(33, 200), Fraction(157, 800)) C (Fraction(33, 200), Fraction(213, 800))
+regime 1 U (Fraction(33, 200), Fraction(27, 100)) C (Fraction(33, 200), Fraction(27, 100))
+regime 3/2 U (Fraction(27, 100), Fraction(27, 100)) C (Fraction(27, 100), Fraction(27, 100))
+regime 2 U (Fraction(27, 100), Fraction(2, 1)) C (Fraction(27, 100), Fraction(2, 1))
+regime 3 U (Fraction(2, 1), Fraction(2, 1)) C (Fraction(2, 1), Fraction(2, 1))
+N 6 a 1/3600 F 1/240 probes 21 planner [Fraction(1, 15), Fraction(23, 240)] robust [Fraction(1, 15), Fraction(2484001, 25920000)] full [Fraction(1, 15), Fraction(934801, 8640000)] gamma 1/240 delta 106801/25920000
+det 160201/12960000 randomized (Fraction(1121407, 129168240), Fraction(-2, 3), Fraction(3001, 7200), Fraction(378000, 538201)) lower 106801/25920000 106801/51552240 random% U optimum 13.022632343678293
+policies attaining Rstar (theta, number of pure NE) [[(Fraction(-2, 3), 1)], [(Fraction(3001, 7200), 8), (Fraction(1, 2), 8), (Fraction(4199, 7200), 8)]]
+N 8 a 1/6400 F 1/448 probes 29 planner [Fraction(11, 224), Fraction(1, 14)] robust [Fraction(11, 224), Fraction(20480007, 286720000)] full [Fraction(11, 224), Fraction(11508807, 143360000)] gamma 1/448 delta 1268807/573440000
+det 2537607/286720000 randomized (Fraction(12688035, 2002023968), Fraction(-3, 4), Fraction(4001, 12800), Fraction(6400000, 8937607)) lower 1268807/573440000 1268807/1141865536 random% U optimum 12.905666217732858
+policies attaining Rstar (theta, number of pure NE) [[(Fraction(-3, 4), 1)], [(Fraction(4001, 12800), 16), (Fraction(3, 8), 16), (Fraction(5599, 12800), 16)]]
+N 10 a 1/10000 F 1/720 probes 37 planner [Fraction(7, 180), Fraction(41, 720)] robust [Fraction(7, 180), Fraction(51250009, 900000000)] full [Fraction(7, 180), Fraction(22982009, 360000000)] gamma 1/720 delta 2482009/1800000000
+det 12410027/1800000000 randomized (Fraction(161330351, 32335219440), Fraction(-4, 5), Fraction(5001, 20000), Fraction(32500000, 44910027)) lower 2482009/1800000000 2482009/3587046480 random% U optimum 12.829647708739966
+policies attaining Rstar (theta, number of pure NE) [[(Fraction(-4, 5), 1)], [(Fraction(5001, 20000), 32), (Fraction(3, 10), 32), (Fraction(6999, 20000), 32)]]
+total paired policy regimes: 100
