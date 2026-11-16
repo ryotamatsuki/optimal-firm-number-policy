@@ -1,0 +1,9 @@
+symbolic identities, rank N=3..16 PASS
+grid audit {'markets': 409, 'direct subsets': 1008, 'policy regimes': 10009, 'NE checks': 109904, 'max halvings': 5, 'unequal pair checks': 230, 'unique min checks': 54, 'common selector checks': 342}
+welfare N 4 gamma 1/96 Delta 157603/15360000 paired NE 2 minimum improvement 157603/7680000
+welfare N 6 gamma 1/240 Delta 106801/25920000 paired NE 5 minimum improvement 106801/12960000
+welfare N 8 gamma 1/448 Delta 1268807/573440000 paired NE 10 minimum improvement 3806421/573440000
+welfare N 10 gamma 1/720 Delta 2482009/1800000000 paired NE 17 minimum improvement 2482009/450000000
+baseline minimum (Fraction(57, 400), (0, 1, 2, 3))
+baseline minimum (Fraction(33, 200), (0, 2))
+PASS 3.13.5 1.14.0
