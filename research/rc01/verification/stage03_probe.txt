@@ -1,0 +1,9 @@
+pairwise rational tests: {(4, 'equal'): 6, (4, 'unequal'): 18, (6, 'equal'): 6, (6, 'unequal'): 18, (8, 'equal'): 6, (8, 'unequal'): 18, (10, 'equal'): 6, (10, 'unequal'): 18}
+active-subset signal checks: 32640
+All-interval cover matches equal shares; unequal shares have a revealing first-exit regime.
+theta 0 left [((0, 1, 2, 3), (Fraction(1, 2), Fraction(3, 10), Fraction(1, 2), Fraction(7, 10)))] right [((0, 1, 2, 3), (Fraction(1, 2), Fraction(3, 10), Fraction(1, 2), Fraction(7, 10)))]
+theta 7/20 left [((0, 2, 3), (Fraction(7, 10), Fraction(3, 5), Fraction(7, 10)))] right [((0, 2, 3), (Fraction(13, 20), Fraction(13, 20), Fraction(7, 10)))]
+welfare diagnostic 4 F 1/96 probe 1601/3200 NE 2 smallest improvement 157603/7680000
+welfare diagnostic 6 F 1/240 probe 2401/7200 NE 5 smallest improvement 106801/12960000
+welfare diagnostic 8 F 1/448 probe 3201/12800 NE 10 smallest improvement 3806421/573440000
+welfare diagnostic 10 F 1/720 probe 4001/20000 NE 17 smallest improvement 2482009/450000000
