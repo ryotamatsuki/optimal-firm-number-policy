@@ -3,6 +3,7 @@ PYTHON ?= python3
 all: paper
 verify:
 	$(PYTHON) scripts/reproduce.py
+	$(PYTHON) scripts/manuscript_exhibits.py
 paper: verify
 	cd paper && latexmk -bibtex -e '$$bibtex = "bibtex8 %O %B"' -pdf -interaction=nonstopmode -halt-on-error -outdir=../build main.tex
 clean:
