@@ -1,0 +1,224 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{lmodern,amsmath,amssymb,amsthm,graphicx,booktabs,natbib,setspace,caption}
+\doublespacing
+\captionsetup{labelfont=bf,labelsep=space}
+\captionsetup[figure]{name=Fig.}
+\setcitestyle{aysep={},citesep={;}}
+\usepackage[hidelinks,pdfauthor={},pdftitle={Policy Resolution and the Identification of Product Differentiation}]{hyperref}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\All}{\mathcal N}
+\renewcommand{\topfraction}{.9}
+\renewcommand{\textfraction}{.12}
+\renewcommand{\floatpagefraction}{.8}
+\title{Policy Resolution and the Identification of Product Differentiation: A Circular-Market Model}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+A participation policy can generate information about the market structure that it changes. We study a fixed-price circular market in which a regulator observes active firms and their market shares but not distances between products. With an even number of candidates, full-market shares leave one alternating component of the geometry unidentified. We derive an open identification window with observable endpoints: outside it, the entire compatible family admits a common signal; inside it, any distinct compatible pair has disjoint signal sets if at least one geometry satisfies a sufficient three-gap condition. For nonuniform initial shares, continuous policy variation identifies an even-market geometry in finitely many state-dependent experiments. A finite menu can miss the window. On a relatively open range of nonuniform initial shares we construct compatible markets for which a common history conceals opposing robust optimal actions, and derive positive regret bounds relative to full knowledge under the same menu. The observable window diagnoses a limitation of feasible policy menus; it is not an unconditional guarantee that a feasible interior experiment will succeed.
+\end{abstract}
+\noindent\textbf{Keywords:} product differentiation; partial identification; participation policy; policy experimentation; robust welfare\\
+\textbf{JEL classification:} D43, D83, L13, L51
+
+\section{Introduction}
+To decide whether to subsidize the continued operation of differentiated suppliers, a regulator needs to know what consumers would lose if a supplier exited. Market shares alone may be misleading: an incumbent can serve a given fraction of consumers because its nearest competitors are moderately distant on both sides or because one is close and the other far away. Can the regulator discover the difference by varying a common participation transfer and observing which firms operate and how consumers redistribute their purchases?
+
+Consider four candidate products, numbered clockwise on a unit circle. In market A their successive gaps are $(.10,.20,.30,.40)$; in market B they are $(.15,.15,.35,.35)$. Consumers are uniform and buy from the nearest active product at a common fixed price. With every product available, both markets generate the same labeled shares $(.25,.15,.25,.35)$. Write $\theta$ for twice the net fixed participation cost divided by the common unit margin. As $\theta$ increases (support falls), the participation requirement becomes more demanding. At $\theta=.2$, all firms operate in both markets. At $.4$, only firm 2 exits in either market, but the quantities of the remaining firms differ. At $.6$, both markets can instead retain just firms 2 and 4, each serving half the market. Figure~\ref{fig:example} records these equilibrium observations. The last observation is possible, not necessarily unique. Thus a policy change that induces some exits can reveal information, while another can permit ambiguity again. This distinction matters if retaining a supplier saves enough travel cost in one market to justify its fixed cost but not in the other.
+
+\begin{figure}[!t]
+\centering\includegraphics[width=\linewidth]{Fig1.pdf}
+\caption{Two distinct geometries with identical initial shares. Filled circles denote active sites; open circles denote inactive candidates; shares are in label order. The first two columns show unique pure equilibria; the last shows a common possible signal. For this pair, the open interval $(.3,.5)$ is revealing for every pure-equilibrium selection}\label{fig:example}
+\end{figure}
+
+The underlying mechanism is geometric. With all sites active, each market share is the average of two adjacent gaps. Alternating increases and decreases in the gaps therefore cancel when the number of sites is even. Exit can break this cancellation, but not every exit pattern does: a retained arc spanning an even number of original gaps is invariant to the same perturbation. A revealing response must expose the alternating component in an observed share.
+
+We establish two results. First, the initial shares determine thresholds $H$ and $T$. A common signal exists across the entire compatible family at every policy outside $(H,T)$. In the interior, a sufficient three-gap condition precludes consecutive exits and forces a junction of one- and two-gap arcs; the share at this junction reveals the missing component. The thresholds are observable, whereas the sufficient condition is not generally observable from the initial shares alone. A continuum of thresholds permits pointwise finite identification for nonuniform initial shares; a finite menu can miss the window altogether.
+
+Second, the information loss can have an allocative consequence even if the regulator could never use a finer instrument. We construct observationally compatible markets with opposite robust optimal actions on one and the same finite menu, and derive strictly positive deterministic and randomized regret bounds. The comparator knows the geometry but faces the same menu and the same worst-pure-equilibrium criterion. We do not count every departure from a planner's allocation as a loss due to imperfect information.
+
+For empirical work, the results distinguish informative policy variation from variation that only changes participation. They suggest checking the support of policy thresholds against the information in observed quantities, and separating uncertainty about product geometry from uncertainty about welfare-relevant counterfactual decisions. Section~\ref{sec:empirical} discusses the required observations and the limits of this diagnostic.
+
+\paragraph{Related literature.} The circular geometry follows \citet{salop1979}. The participation problem is closely related to the stability of competitive facility locations: \citet{dobson1987} study viable facility sets that deter entry, and \citet{rhim2005} analyze product positioning and pricing. We take the candidate locations and price as fixed. The contribution is not the stability condition or its enumeration, but an inverse problem: when does a common shift in participation costs generate observations that distinguish the latent locations? Similarly, \citet{conlon2013} use variation in product availability to identify substitution in demand estimation; here availability responds endogenously to a common transfer rather than being selected product by product.
+
+The identification problem shares the concern about equilibrium multiplicity in \citet{ciliberto2009} and \citet{kline2016}. \citet{balat2023} study treatment effects when treatment decisions arise in games with strategic substitutes; \citet{abito2021} derive restrictions on structural parameters in repeated games without fixing a selection rule. In contrast, we observe exact quantities and labels in fresh static games. The general enumeration framework of \citet{gu2026} and the discrete-instrument problem in \citet{feng2024} provide related perspectives on identification. Our result does not require a new enumeration method: it gives explicit boundaries, computed from the initial shares, and a geometric sufficient condition on the information generated by an interior policy.
+
+Finally, comparing a decision made under incomplete knowledge with the best informed decision is familiar from minimax-regret analysis \citep{manski2004}. The additional economic result here is that endogenous participation can preserve a common history under every available threshold even when the informed optimal thresholds differ. We construct such markets on a relatively open range of nonuniform initial shares, holding the feasible menu and the welfare criterion fixed.
+
+\section{Model}
+\label{sec:model}
+There are $N\geq3$ distinct fixed candidate sites $\All=\{1,\ldots,N\}$ on a unit circle with known directed cyclic label order. Fix rotation. Let $d_i>0$ be the gap from $i$ to $i+1$, with indices modulo $N$ and $\sum_i d_i=1$. The firms know $d$; the regulator does not. A unit mass of consumers is uniformly distributed. Consumer $x$ patronizing active site $z_i$ receives $v-p-t\rho(x,z_i)$, where $\rho$ is geodesic distance and $t>0$. The outside option is zero. Price $p$ and marginal cost $c$ are common and fixed, with $m=p-c>0$ and $v-p>t/2$, ensuring full coverage whenever at least one site operates. Ties have measure zero.
+
+Firms simultaneously choose whether to operate. An active firm earns $mq_i(S)-F+s$, where $S\subseteq\All$ is the active set, $F>0$ is a real fixed cost and $s\in\mathbb R$ is a common transfer. Inactivity yields zero. Taxes are allowed and transfers are welfare-neutral. Set
+\begin{equation}\label{eq:theta}
+\theta=2(F-s)/m.
+\end{equation}
+For a nonempty $S$, let $g_1,\ldots,g_{|S|}$ be the successive retained gaps, using a single gap of length one for a singleton. The demand of active firm $i$ and total transport cost are
+\begin{equation}\label{eq:allocation}
+q_i(S)=\tfrac12(g_{\mathrm{left}(i)}+g_{\mathrm{right}(i)}),\qquad D_d(S)=\tfrac t4\sum_j g_j^2.
+\end{equation}
+Twice the demand upon entry at an inactive site equals the length of its containing retained gap (or two if the market is empty). Appendix~\ref{app:geometry} derives these identities.
+
+\begin{lemma}[Participation]\label{lem:participation}
+A pure Nash equilibrium exists for every $d$ and $\theta\in\mathbb R$. A set $S$ is an equilibrium if and only if
+\begin{equation}\label{eq:ne}
+2q_i(S)\geq\theta\quad(i\in S),\qquad 2q_j(S\cup\{j\})\leq\theta\quad(j\notin S).
+\end{equation}
+For nonempty $S$, its equilibrium policy interval has lower endpoint equal to the largest retained gap containing an inactive site (or $-\infty$ if none), and upper endpoint equal to the smallest adjacent-gap sum of an active site. An interval with reversed endpoints is empty. The empty set is an equilibrium exactly when $\theta\geq2$.
+\end{lemma}
+\begin{proof}
+The inequalities follow by comparing operation with zero profit. Start with all sites active; no entry constraint is violated. Deleting any strictly loss-making firm merges its two adjacent gaps into a gap shorter than $\theta$. Every inactive site in the merged gap consequently satisfies its entry inequality, including the departing firm. All other entry inequalities are unchanged. The argument applies when two sites become one; deletion of a singleton requires $\theta>2$, when the empty set also satisfies the entry inequalities. Finite deletion thus terminates at a set satisfying both sides of \eqref{eq:ne}. Weak inequalities retain indifference.
+\end{proof}
+
+Write $E_d(\theta)$ for the finite nonempty set of pure equilibrium profiles and
+\[
+O_d(\theta)=\{(S,(q_i(S))_{i\in S}):S\in E_d(\theta)\}
+\]
+for the set of possible observable signals, ordered by labels. The regulator knows the primitives other than $d$ and observes exact signals, but not transport disutility or counterfactual demand. Each experiment is a fresh complete-information static game. The pure selector may depend arbitrarily on the history. The regulator may choose thresholds adaptively and randomize. We do not model repeated strategic payoffs or mixed firm equilibria. The policy domain is either the real line (a benchmark) or a finite nonempty menu $A$ containing zero; the same menu governs experimentation and the terminal action, whether geometry is known or unknown.
+
+\section{The identification window}
+\label{sec:window}
+At $\theta=0$ all firms are uniquely active: every proper nonempty subset has a profitable entrant, as does the empty market. Hence the regulator observes
+\begin{equation}\label{eq:h}
+h_i=2q_i(\All)=d_{i-1}+d_i.
+\end{equation}
+\begin{lemma}[Parity]\label{lem:parity}
+For odd $N$, $h$ identifies the ordered gaps. For even $N$, distinct compatible positive geometries satisfy $d_i'-d_i=(-1)^i\delta$ for some nonzero scalar $\delta$. Conversely, every such perturbation preserving positivity leaves $h$ unchanged.
+\end{lemma}
+\begin{proof}
+Put $e_i=d_i'-d_i$. Equation~\eqref{eq:h} implies $e_i=-e_{i-1}$. Odd cyclic closure forces $e_i=0$; even closure permits one alternating direction with zero sum. Positivity restricts its coefficient to an open interval. In particular, the difference in a sum of consecutive original gaps is zero if their number is even and $\pm\delta$ if odd.
+\end{proof}
+For even $N\geq4$, define
+\begin{equation}\label{eq:window}
+H=\min_i h_i,\quad T=\min\{\max_{i\,\mathrm{even}}h_i,\max_{i\,\mathrm{odd}}h_i\},\quad K(d)=\min_i(d_i+d_{i+1}+d_{i+2}).
+\end{equation}
+Each parity of $h$ sums to one. Therefore $H\leq 2/N\leq T<1$, with $H=T$ precisely for uniform $h$. Also $K(d)>H$ by positivity. These facts are detailed in Appendix~\ref{app:geometry}. The observable open interval $I(h)=(H,T)$ is the identification window; $K(d)$ is generally latent.
+
+\begin{theorem}[The identification window]\label{thm:window}
+Let $N\geq4$ be even and fix a compatible positive-gap family with initial shares $h/2$.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item For every $\theta\leq H$ or $\theta\geq T$, the entire family admits a common labeled pure-equilibrium signal. If a menu misses $(H,T)$ and the family contains multiple geometries, no adaptive experiment using that menu guarantees identification under arbitrary pure selection, even with randomization.
+\item For distinct compatible $d,d'$, if $K(d)\geq T$ or $K(d')\geq T$, then $O_d(\theta)\cap O_{d'}(\theta)=\varnothing$ for every $H<\theta<T$. More locally, disjointness holds whenever $H<\theta<\min\{T,K(d)\}$, or with $d'$ in place of $d$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\emph{(i) Common signals.} For $\theta\leq H$, all sites active satisfy \eqref{eq:ne} and have identical shares across the family. For $\theta\geq T$, omit the parity whose maximum $h_i$ attains $T$. Every omitted candidate's entry gap is $h_i\leq T$. The retained sites are of one parity; every nonempty subset of them has only even-length arcs in units of original gaps, whose lengths are invariant by Lemma~\ref{lem:parity}. Its active shares and all inactive entry inequalities are invariant, including the singleton convention. Applying the no-entry-preserving deletion of Lemma~\ref{lem:participation}, with a fixed label rule, constructs a common equilibrium. The empty case has the same entry constraint in every state. For each permitted policy choose such a common signal. Induction on histories yields the same observations under any adaptive rule; for randomized rules use the same random seed in both states.
+
+\emph{(ii) Separation.} Suppose $H<\theta<\min\{T,K(d)\}$. In $d$ the full set is infeasible, and $\theta<1$ rules out empty and singleton sets by the entry inequalities. Two consecutive omissions would place an inactive site in a retained gap of length at least $K(d)>\theta$, a contradiction. Thus omissions are isolated. Nor can the omitted sites constitute one entire parity, since one of their $h_i$ would be at least $T>\theta$. Consequently the retained set contains arcs of one and two original gaps, with a junction between them. If the same active labels arise in $d'$, the share at that junction changes by $\pm\delta/2$: one arc changes by $\pm\delta$ and the other is invariant. If the labels differ, the signal already differs. This proves disjointness; interchanging $d,d'$ proves the alternative condition. If $K(d)\geq T$ the local condition holds throughout the open window.
+\end{proof}
+
+The two boundaries have different economic meanings. At or below $H$, every incumbent can cover its participation cost while all products are available. At or above $T$, removing one parity can deter entry; even-arc aggregation can then hide the same component of differentiation. Part (i) constructs a common signal, not universal uninformative behavior. In part (ii), isolated omissions create two-gap arcs, but an entire parity cannot disappear. The resulting junction breaks cancellation in a surviving firm's share.
+
+The regulator can compute $H,T$ from the initial observations and check whether $A\cap(H,T)$ is empty. If it is empty, identification cannot be guaranteed, however many experiments are conducted. If the menu intersects the window, the three-gap condition is sufficient for a pairwise separation guarantee; it is not necessary and may depend on the unobserved geometry. In a class satisfying that condition and containing distinct compatible states, intersecting the open window is necessary and sufficient for guaranteed identification, with an initial query at zero. For an actual observation, the regulator can also check directly whether a surviving share has a nonzero coefficient on the alternating component, because the number of original gaps spanned by each retained arc is known from its labels. If the coefficient is nonzero, this share determines the remaining scalar in Lemma~\ref{lem:parity}. A feasible interior action without such a guarantee is therefore an opportunity to learn, not evidence by itself that the market has been identified.
+
+Return to Figure~\ref{fig:example}. Here $H=.30$, $T=.50$ and $K(d^A)=.60$, $K(d^B)=.65$. At $.4$ the shares of labels $1,3,4$ are $(.35,.30,.35)$ in A and $(.325,.325,.35)$ in B. At $.6$, labels $2,4$ with shares $(.5,.5)$ are one common signal. The example exposes both mechanisms without ranking geometries by a scalar differentiation index.
+
+\begin{corollary}[Continuous experimentation]\label{cor:continuous}
+For any distinct compatible even pair, $O_d(\theta)\cap O_{d'}(\theta)$ is nonempty at every real $\theta$ if and only if full-market shares are uniform. With nonuniform initial shares, every admissible geometry is identified in finitely many queries under every pure selector, using the continuum; the query count is pointwise finite, and no state-independent bound is asserted.
+\end{corollary}
+\begin{proof}
+If $h$ is uniform, $H=T$, so the common construction works at every threshold for the entire family. Otherwise $H<T$ and $K(d)>H$. Probe $\theta_k=H+2^{-k}$ for $k=1,2,\ldots$, stopping when a retained share has a nonzero coefficient on the alternating component. The coefficient can be computed from label order and retained arcs. For each actual $d$, some finite $k$ lies in $(H,\min(T,K(d)))$, forcing such a junction for every selector. The observed share then solves for the one unknown coefficient. No state-independent bound is asserted.
+\end{proof}
+
+\section{The welfare cost of limited policy resolution}
+\label{sec:welfare}
+The window describes an information constraint, not necessarily a welfare loss. For the latter, indistinguishable markets must also require different actions. We isolate this distinction using the same instrument menu in the informed and uninformed problems.
+
+For nonempty $S$ of size $k$, consumer surplus is $v-p-D_d(S)$, producer surplus $m-kF+ks$, and the government balance $-ks$. Hence welfare is $W_d(S)=v-c-kF-D_d(S)$, with $W_d(\varnothing)=0$. Define the resource cost $C_d(S)=v-c-W_d(S)$ and
+\begin{equation}\label{eq:robust}
+R_d(\theta)=\max_{S\in E_d(\theta)}C_d(S),\qquad R_d^*(A)=\min_{\theta\in A}R_d(\theta).
+\end{equation}
+The cost is $kF+D_d(S)$ for nonempty sets and $v-c$ for the empty set. The known-state comparator minimizes worst-pure cost on $A$, not over all subsets. This separates implementation constraints from the information loss $R_d(\theta)-R_d^*(A)$. For a randomized terminal policy we use expected robust regret; adverse terminal pure selection may depend on the realized action, so this is not necessarily realized regret against a fixed persistent selector.
+
+A useful benchmark is the uniform-share case where the window collapses. With equally spaced sites in one state and alternating gaps $a,b$ in the other, $a+b=2/N$, the states admit a common history even with continuous experimentation. Appendix~\ref{app:uniform} shows that if $ab/2<F/t<1/[4N(N-1)]$, known-state robust optimal actions lie on opposite sides of $2/N$. The corresponding deterministic and randomized regret bounds are strictly positive. The following result extends the welfare conflict to nonuniform shares when policy resolution is limited.
+
+\begin{theorem}[Finite-menu welfare conflict]\label{thm:welfare}
+Let $N\geq4$ be even, $0<a<b$, $a+b=h_0=2/N$. Consider two geometries with $\sum_i u_i=0$, $\max_i|u_i|<\eta$,
+\[
+d_i^U=1/N+u_i,\qquad d_i^C=(a,b,a,b,\ldots)_i+u_i.
+\]
+Let a finite menu $A$ contain zero but not $h_0$, with closest lower and upper thresholds $L=\max\{\theta\in A:\theta<h_0\}$ and $R=\min\{\theta\in A:\theta>h_0\}$ both defined. Assume
+\begin{align}\label{eq:parameters}
+0<\eta&<\min(a,1/N),&2\eta&<\min(h_0-L,R-h_0),\\
+R&<h_0+a-3\eta,&\tfrac t2(a+\eta)(b+\eta)&<F<\tfrac t2(1/N-\eta)^2.\nonumber
+\end{align}
+Define $\gamma=\tfrac t2(1/N-\eta)^2-F$ and $\Delta=F-\tfrac t2(a+\eta)(b+\eta)$, both positive. The states admit a common observational history for every adaptive experiment on $A$, and their known-state robust optimal policy sets are disjoint. Every deterministic decision rule has worst robust regret at least $\min(\gamma,\Delta)$, and every randomized rule has worst expected robust regret at least $\gamma\Delta/(\gamma+\Delta)$. The construction admits a relatively open range of nonuniform compatible initial shares.
+\end{theorem}
+\begin{proof}
+Both geometries have $h_i=h_0+u_{i-1}+u_i$, with $H\geq h_0-2\eta>L$ and $T\leq h_0+2\eta<R$. Theorem~\ref{thm:window}(i) gives a common history for every rule.
+
+In U, adding a candidate to a nonempty set splits a retained gap $x+y$ into $x,y$. By \eqref{eq:allocation} the net resource-cost saving is
+\begin{equation}\label{eq:split}
+\tfrac t4[(x+y)^2-x^2-y^2]-F=txy/2-F.
+\end{equation}
+Each split length is at least $1/N-\eta$, so the saving is at least $\gamma$. Full activity uniquely minimizes fixed-site cost and is uniquely implemented at zero. The empty case also costs at least $\gamma$ more (Appendix~\ref{app:cost}). Every high action $\theta\geq R>H$ excludes the full set and incurs robust regret at least $\gamma$.
+
+In C at $R$, the full set is infeasible. The triple gaps exceed $h_0+a-3\eta>R$ and $R<1$, so each equilibrium has at least two sites and isolated omissions only. Every isolated omission merges two original gaps with product at most $(a+\eta)(b+\eta)$. Reversing \eqref{eq:split} saves at least $\Delta$ in net cost per omission; these merges are additive on disjoint original arcs. Therefore $R_C^*(A)\leq C_C(\All)-\Delta$. Each low action $\theta\leq L<H$ admits full activity and incurs robust regret at least $\Delta$. Thus informed optimal actions must be on opposite sides.
+
+On a coupled common history a deterministic rule chooses the same side. For randomization let $\lambda$ be the probability of a low terminal action. The worst expected robust regret is at least
+\[
+\max\{(1-\lambda)\gamma,\lambda\Delta\}\ \geq\ \frac{\gamma\Delta}{\gamma+\Delta}.
+\]
+The deterministic lower bound follows by restricting $\lambda$ to zero or one. Finally, the linear map from the open neighborhood of sum-zero $u$ to adjacent sums is open onto its image. Removing the uniform-share vector leaves a relatively open range of nonuniform shares, not an open set of independently chosen pairs.
+\end{proof}
+
+Equation~\eqref{eq:split} explains the conflict. Broadly spaced products in U each have sufficient incremental coverage to justify their fixed cost. In C some neighboring products overlap more closely; isolated exit saves more fixed cost than it adds in mismatch. The common menu cannot force an experiment to distinguish the states, yet it offers different preferred actions to the informed regulator. The lower bound concerns this information loss, not all possible welfare losses from regulation.
+
+\subsection{An exact finite-menu example}
+Let $N=4$, $t=1$, $F=.02$, $v-c=2$ and $A=\{0\}\cup\{(2j+1)/40:j=0,\ldots,40\}$. The compatible geometries U and C have gaps $(.252,.249,.250,.249)$ and $(.052,.449,.050,.449)$. They share the nonuniform window $(.499,.501)$, which the menu misses (Figure~\ref{fig:menu}). Adding $.5$ would separate the two states under the three-gap condition. This additional threshold is not part of the same-menu welfare comparison.
+\begin{figure}[htbp]
+\centering\includegraphics[width=\linewidth]{Fig2.pdf}
+\caption{The identification window (shaded) and the nearest available thresholds. The filled circles are available thresholds; the cross denotes a hypothetical additional experiment}\label{fig:menu}
+\end{figure}
+\begin{table}[htbp]
+\centering\caption{Exact robust costs and regret on the original menu}\label{tab:exact}
+\input{summary.tex}
+\end{table}
+Table~\ref{tab:exact} uses complete pure-profile and policy enumeration. In U, zero and every available threshold at or below $.475$ attain the lowest worst-pure cost; in C, only $.525$ does. For example, remaining at zero rather than moving to $.525$ saves about $.022499$ in U but costs about $.017101$ in C. A regulator unable to distinguish the states therefore cannot know which side of the menu to choose on the common history. Every menu action admits a common signal, so no adaptive history rule improves the worst two-state robust decision value over a common-history rule. These are normalized theoretical resource costs, not estimated welfare. A separate strict-inequality witness to Theorem~\ref{thm:welfare} uses $a=.05,b=.45,\eta=.005,L=.475,R=.525,F=.02,t=1$ and $N=4$: $\gamma=801/80000$, $\Delta=599/80000$, and the randomized lower bound is $479799/112000000$. This illustrates a nondegenerate parameter region rather than reliance on uniform shares.
+
+\section{Discussion}
+The information content of a participation policy depends on which gaps its equilibrium response exposes. A wide range of admissible thresholds need not provide the resolution required to learn; conversely, a menu intersecting the observable window does not itself certify the latent three-gap restriction or imply a welfare improvement. A regular grid spanning the window with spacing strictly smaller than $T-H$ must contain an interior point; a coarser grid may also succeed depending on its offset. Neither endpoint is guaranteed to reveal. The simple geometry makes the two limitations precise.
+
+First, interior actions need not reveal without the three-gap restriction. For compatible $d=(.7,.1,.1,.1)$ and $d'=(.72,.08,.12,.08)$, $\theta=.4$ is inside $(.2,.8)$ yet a common signal exists. Second, a blind menu need not generate an allocative conflict: $A=\{0,3\}$ can yield the same robust optimum in compatible states. The value of learning depends on whether compatible markets rank available actions differently, not just on whether the menu permits identification.
+
+The setting may illustrate differentiated-service support or programs with discrete levels of participation incentives; it does not establish that any actual program has common margins, neutral financing, unrestricted transfers or fresh static games. Product distances are relative gaps with known order, not unrestricted preferences. The allocation-based identification mechanism carries over conditionally to strictly increasing common mismatch costs preserving nearest-site choice and full coverage. The welfare conflict is specific to the linear-cost inequalities: quadratic mismatch can overturn it at the same fixed cost. Nonuniform consumer density can distinguish alternating states even at initialization. Unknown order, noisy shares, endogenous price/location, mixed equilibria and strategic dynamics remain outside the analyzed domain.
+
+\subsection{Implications for empirical research}\label{sec:empirical}
+
+\paragraph{Structural identification.} Entry-based measures of competition can be misleading when the maintained model does not support their interpretation \citep{kesternich2020}. Our result identifies a different source of ambiguity: even exact market shares at full participation may be consistent with different patterns of substitution. In the even-candidate circular model, the two parity sums of doubled initial shares must each equal one, and the adjacent-sum equations must admit positive gaps. These are model-consistency checks, not sufficient evidence for the maintained demand system. In particular, recovering a single geometry by imposing equal spacing or fixing one gap does not establish that the data identify it. Labeled quantities and information about the order of candidate products, including inactive ones, are essential to the argument. Counts of operating firms alone discard the redistribution of demand that reveals the alternating component in Theorem~\ref{thm:window}.
+
+\paragraph{Variation and data requirements.} Rather than assess policy support only by its range or the number of distinct values, an applied researcher could compare the available thresholds with the interval computed from baseline shares. This requires a verified full-participation baseline, comparable observations of active identities and quantities, and independent information on fixed costs and margins to translate transfers into the threshold in \eqref{eq:theta}. The distinction between a menu that misses the window and one that hits it is an exact-model diagnostic. The latter does not certify the latent three-gap condition. Actual responses supply a separate diagnostic: if the labeled retained arcs contain a junction of one odd and one even number of original gaps, the share at that site has a nonzero coefficient on the alternating component. Additional measures of product distance or consumer substitution could instead help constrain that component, much as auxiliary data can address different identification problems in dynamic entry models \citep{aguirregabiria2014}. These are prospective data requirements, not a proposed estimator. Historical policy changes would also require a credible account of assignment and of simultaneous changes in demand and costs; the static experiments here hold these primitives fixed.
+
+\paragraph{Counterfactual welfare.} Lack of point identification of a model does not imply that every counterfactual is unidentified \citep{kalouptsidi2021}. Our blind-menu counterexample and Theorem~\ref{thm:welfare} illustrate this distinction for the robust policy decision. Applied work could retain all geometries consistent with the observations and equilibrium restrictions, compare the resulting resource costs and optimal actions, and report sensitivity to restrictions that narrow the compatible set. This is related in spirit to the assumption-sensitive counterfactual analysis of \citet{gu2026}. Our two-state construction establishes a possible welfare conflict, not a general procedure for sharp bounds or statistical inference. An empirical welfare assessment would also require evidence on mismatch costs and real fixed costs, not just shares and transfer payments. With noisy quantities, uncertain margins, heterogeneous consumers, endogenous prices or dynamic entry incentives, neither the exact window test nor its welfare bounds can be used without further analysis.
+
+\section{Conclusion}
+A participation instrument changes what a regulator is able to learn about product differentiation. In the fixed-price circular market, alternating geometry is hidden by full-market shares with even candidate counts, and sufficiently asymmetric participation responses make it observable under an explicit condition. Limited resolution can prevent that response and conceal conflicting robust optimal policies. The welfare cost of this information constraint is defined relative to the same instrument under full knowledge. The results identify a mechanism by which policy resolution matters, even when observed quantities are exact.
+
+\appendix
+\section{Geometry and boundaries}\label{app:geometry}
+Each retained arc of length $g$ divides at its midpoint. Integrating gives $2t\int_0^{g/2}x\,dx=tg^2/4$, also for the unit arc with a singleton. A new site splitting an arc into $x,g-x$ obtains demand $g/2$. With two active sites, removing one merges both arcs to length one; a deviation into an empty market obtains demand one. For $\theta<H$ a proper nonempty active set has an inactive containing gap at least $H$ (one missed site suffices), so all activity is uniquely implemented. At $H$ full activity is possible; for $\theta=2$ singleton and empty profiles are equilibria, and above two only empty survives.
+
+Either parity sum of $h_i$ counts every original gap once, proving $H\leq2/N\leq T$. All adjacent sums are strictly below one. If $H=T$, $H=2/N$ and the fixed total $\sum_i h_i=2$ forces uniformity; uniformity conversely yields equality. Every triple sum includes one adjacent sum at least $H$ and one positive gap, implying $K(d)>H$.
+
+\section{Uniform-share continuum benchmark}\label{app:uniform}
+Let $N\geq4$ be even, U equally spaced and C alternating $a,b>0$, $a+b=2/N=H$. Assume $ab/2<F/t<1/[4N(N-1)]$, and put $\gamma=t/[4N(N-1)]-F$, $\Delta=F-tab/2$. Both are positive. For any nonempty proper subset of U of size $k<N$, Cauchy--Schwarz gives cost at least $kF+t/(4k)$. Its difference from full cost is at least $(N-k)[t/(4kN)-F]\geq\gamma$. Empty cost $v-c>t/2$ also exceeds full cost by at least $\gamma$: full cost plus $\gamma$ equals $(N-1)F+t/(4N)+t/[4N(N-1)]<t/2$. Hence full activity uniquely minimizes fixed-site cost and is implemented at zero; every $\theta>H$ incurs regret at least $\gamma$.
+
+In C pick $H<\theta<\min(H+\min(a,b),1)$. Triple gaps are at least $H+\min(a,b)$, so all pure equilibria are nonempty with isolated omissions, including at least one. Each omission saves $\Delta$ by merging $a,b$. Actions at most $H$ admit full activity and incur regret at least $\Delta$. Known-state optima are attained since only finitely many profiles and equilibrium endpoints exist; the intervening regimes have constant equilibrium sets. Theorem~\ref{thm:window}(i) gives a common path everywhere. The two-side decision argument gives bounds $\min(\gamma,\Delta)$ and $\gamma\Delta/(\gamma+\Delta)$ for deterministic and randomized rules on the continuum. This benchmark has uniform initial shares.
+
+\section{Empty-profile and robustness details}\label{app:cost}
+Under Theorem~\ref{thm:welfare}, U has strictly positive splits. The lower bound in \eqref{eq:split} applies to any addition to a nonempty set, including a singleton. A singleton costs $F+t/4$; $F+\gamma=t(1/N-\eta)^2/2<t/4$. Thus $v-c>t/2$ exceeds singleton cost by more than $\gamma$, and exceeds full cost by at least $\gamma$. In C, $R<h_0+a-3\eta<1$ since $a<h_0/2$ and $N\geq4$. Distinct isolated omissions merge disjoint original arcs; each additional transportation cost is $txy/2$ with $xy\leq(a+\eta)(b+\eta)$. There is no assumption that all fixed-site optima are implementable. The two-world comparison uses attained extrema of finite nonempty equilibrium sets, not a selected equilibrium or a mixed-strategy implementation.
+
+\section*{Data availability}
+No empirical dataset was used. The numerical examples are generated from the model. The accompanying anonymized replication materials contain the parameters, exact-arithmetic enumeration and scripts that produce the figures and table.
+
+\section*{Reproducibility and use of artificial intelligence}
+Selected proof-critical implications were checked with Lean; the entire game, continuous consumer allocation and economic interface assumptions were not mechanized. Generative AI (ChatGPT) substantially assisted the exploration of research ideas, theoretical and proof development, literature analysis, code and formalization, and drafting and revision of the manuscript. The exhibits are deterministic plots from mathematical inputs and enumeration, not synthetic empirical observations. This disclosure is provisional pending author verification of the exact manuscript and final publication disclosures.
+\setlength{\bibsep}{0pt}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
