@@ -1,0 +1,5 @@
+EXACT adversarial enumeration {'worlds': 173, 'profiles': 19872, 'regimes': 4309, 'pure_NE': 45139, 'multiple': 3886, 'deviation_inequalities': 4428720, 'indifferent_flips': 46652, 'flipped_still_NE': 31966, 'paired_regimes': 4470, 'nonuniform_pairs': 89, 'unique_min': 28, 'uniform_pairs': 11}
+WELFARE {'welfare_cases': 36, 'paired_policy_regimes': 720}
+REGRESSION theta 1/2 U [(0, 2), (0, 1, 2), (1, 3), (0, 1, 3), (0, 2, 3), (1, 2, 3), (0, 1, 2, 3)] C [(0, 2), (0, 1, 2), (1, 3), (0, 1, 3), (0, 2, 3), (1, 2, 3), (0, 1, 2, 3)]
+REGRESSION theta 3/5 U [(0, 2), (1, 3)] C [(0, 2), (1, 2), (0, 3), (1, 3)]
+PASS Python 3.13.5
