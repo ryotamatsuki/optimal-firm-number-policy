@@ -774,7 +774,12 @@ theorem triple_min_above_H (d : ℕ → ℝ) (H K : ℝ)
 
 theorem finite_probe_in_intersection (H T K : ℝ) (ht : H<T) (hk : H<K) :
     ∃ n : ℕ, H<H+(1/2 : ℝ)^n ∧ H+(1/2 : ℝ)^n<T ∧ H+(1/2 : ℝ)^n<K := by
-  have hpos : 0<min (T-H) (K-H) := (lt_min_iff).2 ⟨sub_pos.mpr ht,sub_pos.mpr hk⟩
+  have hpos : (0 : ℝ) < min (T-H) (K-H) := by
+    rcases le_total (T-H) (K-H) with h | h
+    · rw [min_eq_left h]
+      exact sub_pos.mpr ht
+    · rw [min_eq_right h]
+      exact sub_pos.mpr hk
   obtain ⟨n,hn,hs⟩ := finite_dyadic_probe _ hpos
   have hT := lt_of_lt_of_le hs (min_le_left (T-H) (K-H))
   have hK := lt_of_lt_of_le hs (min_le_right (T-H) (K-H))
