@@ -478,7 +478,7 @@ theorem pair_sum_arc (d : ℕ → ℝ) (i n : ℕ) :
   induction n with
   | zero => simp [arc]
   | succ n ih =>
-    change (∑ j ∈ Finset.range (n+1), (d (i+2*j)+d (i+2*j+1))) = arc d i (2*(n+1))
+
     rw [Finset.sum_range_succ, ih, show 2*(n+1) = 2*n+1+1 by omega]
     unfold arc
     simp only [Finset.sum_range_succ]
@@ -490,7 +490,7 @@ theorem arc_shift (d : ℕ → ℝ) (n : ℕ) :
   induction n with
   | zero => simp [arc]
   | succ n ih =>
-    change arc d 0 (n+1)+d (n+1) = d 0+arc d 1 (n+1)
+
     unfold arc at *
     simp only [Nat.zero_add] at ih
     simp only [Finset.sum_range_succ, Nat.zero_add]
@@ -637,7 +637,7 @@ theorem interior_window_certificate (active : ℕ → Bool)
     (different : ∃ i, d i≠e i)
     (hmin : ∃ i, h i=H)
     (evenmax : ∃ k, T≤h (2*k)) (oddmax : ∃ k, T≤h (2*k+1))
-    (lo : H<θ) (hi : θ<T) (kbound : T≤K)
+    (lo : H<θ) (hi : θ<T) (gapBound : θ<K)
     (full : (∀ i, active i=true) → ∀ i, q i=h i)
     (stay : ∀ i, active i=true → θ≤q i)
     (idle : ∀ i, active i=false → entry i≤θ)
@@ -649,7 +649,7 @@ theorem interior_window_certificate (active : ℕ → Bool)
     (right : ∀ i, active i=true → active (i+1)=true → active (i+2)=false →
       q (i+1)=d (i+1)+d (i+2)+d (i+3) ∧ r (i+1)=e (i+1)+e (i+2)+e (i+3)) :
     ∃ i, active i=true ∧ q i≠r i := by
-  have omit : ∃ i, active i=false := by
+  have hOmitted : ∃ i, active i=false := by
     by_contra hn
     have all : ∀ i, active i=true := by
       intro i
@@ -660,11 +660,11 @@ theorem interior_window_certificate (active : ℕ → Bool)
     have hs := stay i (all i)
     have hf := full all i
     linarith
-  have iso := isolated_from_triple_bound active g θ T K hi kbound gmin
+  have iso := isolated_from_triple_bound active g θ K K gapBound (le_refl K) gmin
     (fun i ha hb => le_trans (adjacent i ha hb) (idle i ha))
   have hn : ∀ i, active i=false → h i≤θ :=
     fun i ha => le_trans (lower i ha) (idle i ha)
-  exact interior_signal_separation active d e h q r θ T compatible different omit iso hn evenmax oddmax hi left right
+  exact interior_signal_separation active d e h q r θ T compatible different hOmitted iso hn evenmax oddmax hi left right
 
 theorem pow_two_lower (n : ℕ) : (n : ℝ)+1≤(2 : ℝ)^n := by
   induction n with
@@ -759,4 +759,83 @@ theorem robust_welfare_from_profiles {X : Type*} (A : Set ℝ)
 #print axioms finite_dyadic_probe
 #print axioms perturbed_share_bounds
 #print axioms robust_welfare_from_profiles
+end RC01
+
+
+namespace RC01
+
+-- The continuum benchmark needs only the region below BOTH cutoffs:
+-- P4 follows by T ≤ K; P2 follows by taking a sufficiently small dyadic probe.
+theorem triple_min_above_H (d : ℕ → ℝ) (H K : ℝ)
+    (positive : ∀ i, 0<d i) (lower : ∀ i, H≤d i+d (i+1))
+    (attained : ∃ i, K=d i+d (i+1)+d (i+2)) : H<K := by
+  obtain ⟨i,hi⟩ := attained
+  linarith [lower i, positive (i+2)]
+
+theorem finite_probe_in_intersection (H T K : ℝ) (ht : H<T) (hk : H<K) :
+    ∃ n : ℕ, H<H+(1/2 : ℝ)^n ∧ H+(1/2 : ℝ)^n<T ∧ H+(1/2 : ℝ)^n<K := by
+  have hpos : 0<min (T-H) (K-H) := (lt_min_iff).2 ⟨sub_pos.mpr ht,sub_pos.mpr hk⟩
+  obtain ⟨n,hn,hs⟩ := finite_dyadic_probe _ hpos
+  have hT := lt_of_lt_of_le hs (min_le_left (T-H) (K-H))
+  have hK := lt_of_lt_of_le hs (min_le_right (T-H) (K-H))
+  exact ⟨n,by linarith,by linarith,by linarith⟩
+
+theorem split_path_gain (cost a b : ℕ → ℝ) (n : ℕ) (l t F : ℝ)
+    (hl : 0≤l) (ht : 0≤t)
+    (ha : ∀ i<n, l≤a i) (hb : ∀ i<n, l≤b i)
+    (step : ∀ i<n, cost i-cost (i+1)=t*a i*b i/2-F) :
+    (n : ℝ)*(t*l^2/2-F)≤cost 0-cost n := by
+  apply cumulative_saving
+  intro i hi
+  rw [step i hi]
+  exact split_saving_bound hl (ha i hi) (hb i hi) ht
+
+theorem removal_path_gain (cost a b : ℕ → ℝ) (n : ℕ) (A B t F : ℝ)
+    (ht : 0≤t)
+    (ha : ∀ i<n, 0≤a i) (hb : ∀ i<n, 0≤b i)
+    (haU : ∀ i<n, a i≤A) (hbU : ∀ i<n, b i≤B)
+    (step : ∀ i<n, cost i-cost (i+1)=F-t*a i*b i/2) :
+    (n : ℝ)*(F-t*A*B/2)≤cost 0-cost n := by
+  apply cumulative_saving
+  intro i hi
+  rw [step i hi]
+  exact isolated_removal_bound (ha i hi) (hb i hi) (haU i hi) (hbU i hi) ht
+
+theorem positive_path_gain (n : ℕ) (delta gap : ℝ)
+    (hn : 0<n) (hd : 0<delta) (hg : (n : ℝ)*delta≤gap) : delta≤gap := by
+  have hn' : 1≤n := by omega
+  have hr : (1 : ℝ)≤(n : ℝ) := by exact_mod_cast hn'
+  have hm := mul_le_mul_of_nonneg_right hr (le_of_lt hd)
+  linarith
+
+-- U's empty allocation: V=v-c; l is the uniform-state minimum gap bound.
+theorem empty_welfare_bound (n t F l V Cfull : ℝ)
+    (hn : 4≤n) (ht : 0<t) (hl : 0≤l) (hupper : l≤1/n)
+    (hF : F<t*l^2/2) (hfull : Cfull≤n*F+t/4) (hV : t/2<V) :
+    t*l^2/2-F≤V-Cfull := by
+  have hnp : 0<n := by linarith
+  have hnl := (le_div_iff₀ hnp).mp hupper
+  have ha := mul_le_mul_of_nonneg_right hn hl
+  have hquarter : l≤1/4 := by linarith
+  have hb := mul_le_mul_of_nonneg_left hnl hl
+  have hc : n*l^2≤1/4 := by nlinarith only [hb,hquarter]
+  have htc := mul_le_mul_of_nonneg_left hc (le_of_lt ht)
+  have hf := mul_le_mul_of_nonneg_left (le_of_lt hF) (show 0≤n-1 by linarith)
+  nlinarith only [htc,hf,hfull,hV,ht]
+
+theorem perturbed_triple_bound (a b u v w η : ℝ)
+    (hu : |u|<η) (hv : |v|<η) (hw : |w|<η) :
+    2*a+b-3*η<(a+u)+(b+v)+(a+w) := by
+  have hu' := (abs_lt.mp hu).1
+  have hv' := (abs_lt.mp hv).1
+  have hw' := (abs_lt.mp hw).1
+  linarith
+
+#print axioms triple_min_above_H
+#print axioms finite_probe_in_intersection
+#print axioms split_path_gain
+#print axioms removal_path_gain
+#print axioms positive_path_gain
+#print axioms empty_welfare_bound
+#print axioms perturbed_triple_bound
 end RC01
