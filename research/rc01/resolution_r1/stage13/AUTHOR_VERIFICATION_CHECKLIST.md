@@ -1,0 +1,6 @@
+# Author-only preparation — not for anonymous review upload
+- Complete verified author name(s), actual research affiliation or independent scholar city/country, corresponding author email, ORCID if available.
+- Confirm authorship, real intellectual work, funding, competing interests, acknowledgments, ethics/consent, author contributions and institutional approval if applicable. Do not invent declarations.
+- Personally review exact manuscript including definitions, theorem proofs, assumptions and counterexamples, bibliography/source claims, numeric replication, partial Lean coverage and empirical implications; document actual judgments, corrections and sign-off with exact version. Existing pre-freeze judgment record is not final verification. Confirm AI use and human supervision; disclosure alone does not establish author-led research eligibility.
+- Check public repository/preprint dissemination and reviewer anonymity with editor/portal. Do not hide prior dissemination. Confirm no simultaneous submission.
+- Confirm fee-free subscription route (all mandatory charges), current editorial/AI requirements, exact article label and files, portal cover letter, author declarations, anonymous data access, figure file type, and compilation; verify exact portal-rendered PDF. Do not upload placeholders or submit without author agreement.

@@ -1,0 +1,18 @@
+# Stage 14 AI disclosure and author accountability reconciliation
+2026-11-17 JST. Current official references in JOURNAL_REQUIREMENTS_LEDGER_REFRESH.md (G, R, W). No author final sign-off obtained. No independent human or new formal verification claimed.
+| Material activity | Evidence and actor | Disclosure/verification status |
+|---|---|---|
+| Theory exploration and selection | prior stage reports AI-assisted hypotheses/construction; author selected identification window and articulated mechanism, limits and example in AUTHOR_INTELLECTUAL_CONTRIBUTION_RECORD.md (2371c6a1d07d7d1f9656ffb69cc12cd0f696ddf1) | disclosed; actual human intellectual leadership/complete oversight still to validate |
+| Model/proofs/adversarial reasoning | AI drafts and checks; previous analytic and exact computation artifacts; not verified personally throughout by author | disclose method and division of work; author's own claim-level verification outstanding |
+| Literature | AI searches/targeted reading and metadata; DK full original unavailable | disclose, author personally assess claims; no blanket full-text or priority certification |
+| Numerics/exhibits | AI-assisted Python code; deterministic exact arithmetic regenerated, plots from verifiable mathematical inputs using Matplotlib; not empirical and no generative-image model | disclose tool/purpose and reproducibility; personal human validation outstanding |
+| Lean | AI-assisted formalization; GitHub CI 53-declaration selected core prior success reverified; economic interface not fully mechanized | disclose scope; no full-game or human verification claim |
+| Manuscript | AI substantial drafting and revision, including empirical implications, simulated referee assessments and formatting | disclose, author must own and verify scientific argument, revisions and final text |
+The exact manuscript p16 already transparently states substantial ChatGPT assistance and provisional status. Author-only draft now pre-filled from earlier separate-paper record, with no assertion of personal independent verification or declarations beyond evidence. Current policy distinguishes supportive use with accountability from substitution for core judgment; material research and writing involvement cannot be classified as proofreading. Author-led verification/rework, actual contribution statement, truthful declaration and any necessary editor clarification required; disclosure alone insufficient. No personal contact information stored here. No AI-generated author attestation, no paper submission or merge.
+
+## Subsequent author confirmation
+The author subsequently confirmed personal reading and verification of the final manuscript's theory, proofs, citations and numerical results, and accepted responsibility for the research and AI use. See [AUTHOR_CONFIRMATION_ADDENDUM.md](AUTHOR_CONFIRMATION_ADDENDUM.md). This is author self-report and complements the earlier substantive research judgment; it does not establish independent origination, unaided verification of every artifact, new formal checks or publisher approval. Preserve full disclosure of substantial AI involvement and obtain any required journal clarification. Finalized disclosure/package and material journal compliance remain pending.
+
+
+## Author-confirmed disclosure amendment
+See [AI_DISCLOSURE_AMENDMENT_2026-11-17.md](AI_DISCLOSURE_AMENDMENT_2026-11-17.md) for new exact source/PDF/ZIP and bounded QA results. The previous provisional statement in the manuscript is replaced by the author's reported personal verification and accountability. Historical hashes above refer to the prior version. Journal/portal and final declarations remain open; HOLD.
