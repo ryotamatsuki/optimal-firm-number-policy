@@ -25,3 +25,6 @@ Q: https://link.springer.com/journal/10842/contact-the-journal (level3).
 | Portal fields & cover letter | G online instructions; reviewer/suggested reviewer, exact title/disclosures, article type, highlights/graphical abstract as applicable, portal PDF, licensing not accessible | UNVERIFIED |
 | Editor clarification | Q identifies official support route; inquiry drafted (not sent), no reply | UNVERIFIED |
 No authenticated access or actual journal contact. No guessed requirements or assertions. Reconcile direct current journal instructions and portal-specific rules before gate closure.
+
+## Subsequent confirmation superseding author-status entries
+On 2026-11-17 the author confirmed unchanged information and independent capacity, sole authorship, no external funding/COI/acknowledgment recipients, no simultaneous journal submission, a check of prior dissemination outside GitHub, and personal final-manuscript verification/accountability. See [AUTHOR_CONFIRMATION_ADDENDUM.md](AUTHOR_CONFIRMATION_ADDENDUM.md). Author self-report is now recorded; precise prior dissemination/permissions, actual final file/portal declarations, all-in fee, AI-policy eligibility and anonymity/artwork clarification remain unresolved. No journal response or portal access; HOLD.
