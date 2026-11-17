@@ -15,3 +15,7 @@ Author to validate actual name/affiliation and sole authorship, funding/COI/ackn
 
 ## Subsequent author confirmation (2026-11-17 JST)
 See [AUTHOR_CONFIRMATION_ADDENDUM.md](AUTHOR_CONFIRMATION_ADDENDUM.md). The author confirmed all four requested items, including personal review/verification and responsibility; these items are no longer pending as author self-reports. This does not certify publisher eligibility or imply unaided research. Non-portal journal clarifications, final declarations/rights handling and portal QA remain open; submission HOLD.
+
+
+## Author-confirmed disclosure amendment
+See [AI_DISCLOSURE_AMENDMENT_2026-11-17.md](AI_DISCLOSURE_AMENDMENT_2026-11-17.md) for new exact source/PDF/ZIP and bounded QA results. The previous provisional statement in the manuscript is replaced by the author's reported personal verification and accountability. Historical hashes above refer to the prior version. Journal/portal and final declarations remain open; HOLD.

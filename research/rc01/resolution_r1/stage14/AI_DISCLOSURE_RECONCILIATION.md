@@ -12,3 +12,7 @@ The exact manuscript p16 already transparently states substantial ChatGPT assist
 
 ## Subsequent author confirmation
 The author subsequently confirmed personal reading and verification of the final manuscript's theory, proofs, citations and numerical results, and accepted responsibility for the research and AI use. See [AUTHOR_CONFIRMATION_ADDENDUM.md](AUTHOR_CONFIRMATION_ADDENDUM.md). This is author self-report and complements the earlier substantive research judgment; it does not establish independent origination, unaided verification of every artifact, new formal checks or publisher approval. Preserve full disclosure of substantial AI involvement and obtain any required journal clarification. Finalized disclosure/package and material journal compliance remain pending.
+
+
+## Author-confirmed disclosure amendment
+See [AI_DISCLOSURE_AMENDMENT_2026-11-17.md](AI_DISCLOSURE_AMENDMENT_2026-11-17.md) for new exact source/PDF/ZIP and bounded QA results. The previous provisional statement in the manuscript is replaced by the author's reported personal verification and accountability. Historical hashes above refer to the prior version. Journal/portal and final declarations remain open; HOLD.
