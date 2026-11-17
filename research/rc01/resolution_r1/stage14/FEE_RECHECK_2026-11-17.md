@@ -1,0 +1,13 @@
+# Stage 14 — JICT author-charge recheck (2026-11-17 JST)
+Status: **UNVERIFIED — likely zero mandatory charges on subscription route, not certified.** Author clarified that remembered prior JICT submission/no-cost experience may concern another journal; exclude this as evidence. No earlier JICT receipt or fee/payment history is established here. Do not relax the Stage 14 all-in fee gate on that basis.
+
+Current official evidence (accessed 2026-11-17):
+- https://link.springer.com/journal/10842/how-to-publish-with-us (journal-specific): hybrid, authors may select subscription after acceptance with no APC; optional OA APC USD 2990 / GBP 2090 / EUR 2390 before applicable tax, price determined at acceptance.
+- https://link.springer.com/journal/10842/submission-guidelines (journal-specific): typically <20 double-spaced manuscript pages, max 40; manuscript submission section has no explicit submission/review fee; no separate mandatory page or excess-page charge stated in reviewed guidelines. Online color free; print color may incur additional costs; offprints optional. Current anonymous manuscript 17 double-spaced pages with grayscale figures; this does not certify typeset length or charges. 
+- https://link.springer.com/journal/10842 (journal-specific): print ISSN marked ceased; recent non-OA papers present. This supports availability of subscription model, not proof that authors paid zero.
+- https://support.springernature.com/en/support/solutions/articles/6000084580-costs-of-publishing-in-springer-nature-journal (publisher support, modified 2025-07-21): majority of subscription journals charge nothing; page/color/overlength charges may apply, details in individual journal pages.
+- https://support.springernature.com/en/support/solutions/articles/6000257336-subscription-publishing (publisher support): no APC under subscription; some journals page/color charges.
+- Comparison only: https://link.springer.com/journal/11149/submission-guidelines (JRE): journal-specific excess-page charge USD100 per typeset page above 16; no corresponding rule found in JICT. This is evidence of fee disclosure practice, not a guarantee about JICT.
+- https://link.springer.com/journal/10842/contact-the-journal : official support channel. Inquiry remains unsent.
+
+Disposition: APC-free subscription confirmed; submission, review, page, overlength and other mandatory author fees not explicitly confirmed as zero; no author charge assumed or authorized. Continue HOLD pending definitive confirmation and remaining AI/anonymity/portal gates. An authenticated portal and/or written publisher clarification required for all-in zero finding. No manuscript change, submission or editor contact.
