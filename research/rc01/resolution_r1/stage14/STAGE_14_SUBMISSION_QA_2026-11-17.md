@@ -19,3 +19,7 @@ See [AUTHOR_CONFIRMATION_ADDENDUM.md](AUTHOR_CONFIRMATION_ADDENDUM.md). The auth
 
 ## Author-confirmed disclosure amendment
 See [AI_DISCLOSURE_AMENDMENT_2026-11-17.md](AI_DISCLOSURE_AMENDMENT_2026-11-17.md) for new exact source/PDF/ZIP and bounded QA results. The previous provisional statement in the manuscript is replaced by the author's reported personal verification and accountability. Historical hashes above refer to the prior version. Journal/portal and final declarations remain open; HOLD.
+
+
+## Pre-submission package completion
+See [PRESUBMISSION_PACKAGE_QA_2026-11-17.md](PRESUBMISSION_PACKAGE_QA_2026-11-17.md) for final local package, administrative SI reference change, SHA-256 manifest, clean rerun, author-only materials and remaining journal/portal conditions. Technical QA PASS; full submission QA HOLD. No inquiry sent or submission performed.
